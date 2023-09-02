@@ -7,9 +7,13 @@
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@default/*": ["src/default/*"]
+    },
     "esModuleInterop": true,
-    "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
