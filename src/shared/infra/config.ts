@@ -4,4 +4,6 @@ export default {
   DB_KEY_MONGO: process.env.DB_KEY_MONGO,
   DB_HOST_MONGO: process.env.DB_HOST_MONGO,
   DB_CONTAINER_NAME_MONGO: process.env.DB_CONTAINER_NAME_MONGO,
+  LOGTAIL_SOUCE_TOKEN: process.env.LOGTAIL_SOUCE_TOKEN,
+  LOG_LEVEL: process.env.LOG_LEVEL,
 };

@@ -1,11 +1,13 @@
 import express from 'express';
 import 'express-async-errors';
+import expressWinston from 'express-winston';
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import morgan from 'morgan';
 import errorMiddleware from '@shared/middleware/error.middleware';
 import notFoundMiddleware from '@shared/middleware/notFound.middleware';
+import { logger } from './logger';
 
 export default function ({ homeRouterPublic, kapucRouterPublic, kapucRouterPrivate }: any) {
   const router = express.Router();
@@ -18,7 +20,17 @@ export default function ({ homeRouterPublic, kapucRouterPublic, kapucRouterPriva
     .use(cors())
     .use(helmet())
     .use(compression())
-    .use(morgan('dev'));
+    .use(morgan('dev'))
+    .use(
+      expressWinston.logger({
+        winstonInstance: logger,
+      })
+    )
+    .use(
+      expressWinston.errorLogger({
+        winstonInstance: logger,
+      })
+    );
 
   // prefix route
   router.use('', apiRoutes);
