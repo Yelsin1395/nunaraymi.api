@@ -8,7 +8,7 @@ export class KapucQueryUseCase {
     const kapucDb = await this.kapucService.findById(id);
 
     if (!kapucDb) {
-      throw new AppError(404, 'ERROR_NOT_FOUND_KAPUC_ENTITY', 'Merchant could not be found');
+      throw new AppError(404, 'ERROR_NOT_FOUND_KAPUC_ENTITY', 'Kapuc could not be found');
     }
 
     return kapucDb;
