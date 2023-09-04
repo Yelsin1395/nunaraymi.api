@@ -3,13 +3,18 @@ import clc from 'cli-color';
 import figlet from 'figlet';
 
 import '@shared/infra/load-env-vars';
+import cloudConnectionMongoDb from '@shared/infra/database/connection/mongodb.connection';
 import pkg from 'package.json';
 import shared from '@shared/infra/export';
 
-function boostrap() {
+async function boostrap() {
   const app = express().use(shared.broker);
   const PORT = process.env.PORT || 4000;
 
+  // Connection mongodb
+  await cloudConnectionMongoDb();
+
+  // Start app
   app.listen(PORT, () => {
     figlet('JESUSYELSINBROLY', (error, result) => {
       console.log(error || result);

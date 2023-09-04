@@ -1,13 +1,13 @@
 import express from 'express';
+import 'express-async-errors';
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import morgan from 'morgan';
-import 'express-async-error';
 import errorMiddleware from '@shared/middleware/error.middleware';
 import notFoundMiddleware from '@shared/middleware/notFound.middleware';
 
-export default function ({ homeRouterPublic }: any) {
+export default function ({ homeRouterPublic, kapucRouterPublic, kapucRouterPrivate }: any) {
   const router = express.Router();
   const apiRoutes = express.Router();
 
@@ -29,6 +29,10 @@ export default function ({ homeRouterPublic }: any) {
 
   // endpoints
   apiRoutes.use('/public/home', homeRouterPublic);
+
+  // kapuc
+  apiRoutes.use('/public/kapuc', kapucRouterPublic);
+  apiRoutes.use('/private/kapuc', kapucRouterPrivate);
 
   return router;
 }

@@ -1,8 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import AppError from '@shared/infra/shared.exception';
 
-export default function (error: AppError, req: Request, res: Response, next: NextFunction): void {
-  if (error.code) {
+export default function (error: any, req: Request, res: Response, next: NextFunction): void {
+  if (error.code || error.name.includes('ValidationError')) {
     const httpStatus = error.status || 400;
     res.status(httpStatus).send({
       status: httpStatus,

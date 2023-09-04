@@ -1,13 +1,13 @@
 // service
 import { HomeServiceImpl } from './database/service/home.service';
 
-// use-case
+// use case
 import { WelcomeHome } from '@default/app/use-cases/welcome-home.case-use';
 
 // controller
 import { HomeController } from './http/home.controller';
 
-// router
+// routes
 import routerPublic from './http/public/home.router';
 
 // build

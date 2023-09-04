@@ -1,7 +1,7 @@
 import { Response } from 'express';
 
 export function responseOk(res: Response, data: any) {
-  res.status(200).send({ status: 200, sucess: true, payload: { ...data } });
+  res.status(200).send({ status: 200, sucess: true, payload: data });
 }
 
 export function responseCreate(res: Response, id: any) {
