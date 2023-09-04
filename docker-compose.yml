@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    container_name: nunaraymi.api
+    restart: always
+    build: .
+    ports:
+      - '4000:4000'
+    # links:
+    #   - mongodb
+    volumes:
+      - .:/app
+
+  # mongodb:
+  #   container_name: mongodatabase
+  #   image: mongo
+  #   ports:
+  #     - '27018:27017'
+  #   logging:
+  #     # to not see the logs of the db
+  #     driver: none
