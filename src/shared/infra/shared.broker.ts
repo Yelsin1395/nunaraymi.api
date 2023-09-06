@@ -7,9 +7,16 @@ import compression from 'compression';
 import morgan from 'morgan';
 import errorMiddleware from '@shared/middleware/error.middleware';
 import notFoundMiddleware from '@shared/middleware/notFound.middleware';
+import auditSiteMiddleware from '@shared/middleware/auditSite.middleware';
 import { logger } from './logger';
 
-export default function ({ homeRouterPublic, kapucRouterPublic, kapucRouterPrivate }: any) {
+export default function ({
+  homeRouterPublic,
+  kapucRouterPublic,
+  kapucRouterPrivate,
+  kamachiqPublic,
+  kamachiqPrivate,
+}: any) {
   const router = express.Router();
   const apiRoutes = express.Router();
 
@@ -21,6 +28,7 @@ export default function ({ homeRouterPublic, kapucRouterPublic, kapucRouterPriva
     .use(helmet())
     .use(compression())
     .use(morgan('dev'))
+    .use(auditSiteMiddleware)
     .use(
       expressWinston.logger({
         winstonInstance: logger,
@@ -45,6 +53,10 @@ export default function ({ homeRouterPublic, kapucRouterPublic, kapucRouterPriva
   // kapuc
   apiRoutes.use('/public/kapuc', kapucRouterPublic);
   apiRoutes.use('/private/kapuc', kapucRouterPrivate);
+
+  // kamachiq
+  apiRoutes.use('/public/kamachiq', kamachiqPublic);
+  apiRoutes.use('/private/kamachiq', kamachiqPrivate);
 
   return router;
 }

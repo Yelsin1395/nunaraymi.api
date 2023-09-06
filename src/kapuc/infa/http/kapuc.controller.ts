@@ -12,12 +12,12 @@ export class KapucController {
     private readonly kapucCreateUseCase: KapucCreateUseCase
   ) {}
 
-  async findById(req: Request, res: Response) {
+  async findById(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     responseOk(res, await this.kapucQueryUseCase.findById(id));
   }
 
-  async create(req: Request, res: Response) {
+  async create(req: Request, res: Response): Promise<void> {
     createKapucValidateInput(req.body);
     const result = await this.kapucCreateUseCase.execute(req.body);
     responseCreate(res, result);

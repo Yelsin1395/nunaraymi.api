@@ -10,7 +10,8 @@
     "paths": {
       "@shared/*": ["src/shared/*"],
       "@default/*": ["src/default/*"],
-      "@kapuc/*": ["src/kapuc/*"]
+      "@kapuc/*": ["src/kapuc/*"],
+      "@kamachiq/*": ["src/kamachiq/*"]
     },
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,

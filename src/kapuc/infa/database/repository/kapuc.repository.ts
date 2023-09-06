@@ -3,10 +3,10 @@ import { KapucRepository } from '@kapuc/core/domain/kapuc.repository.domain';
 import { IKapuc, IKapucCreate } from '@kapuc/core/interface/kapuc.interface';
 
 export class KapucRepositoryImpl implements KapucRepository {
-  constructor(private readonly kapucModel: Model<IKapuc>) {}
+  constructor(private readonly kapuc: Model<IKapuc>) {}
 
   public async findById(id: string): Promise<IKapuc | null> {
-    return this.kapucModel.findById(id);
+    return this.kapuc.findById(id);
   }
 
   public async create(entry: IKapucCreate): Promise<ObjectId> {
@@ -16,7 +16,7 @@ export class KapucRepositoryImpl implements KapucRepository {
       domainUrl: entry.domainUrl,
     };
 
-    const result = await this.kapucModel.create(entity);
+    const result = await this.kapuc.create(entity);
     return result._id;
   }
 }

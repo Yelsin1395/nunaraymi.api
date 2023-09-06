@@ -8,5 +8,8 @@ const logtail = new Logtail(String(config.LOGTAIL_SOUCE_TOKEN));
 export const logger = winston.createLogger({
   level: config.LOG_LEVEL || 'info',
   format: winston.format.json(),
-  transports: [new LogtailTransport(logtail)],
+  transports:
+    config.LOG_LEVEL === 'debug'
+      ? [new winston.transports.Console()]
+      : [new LogtailTransport(logtail)],
 });

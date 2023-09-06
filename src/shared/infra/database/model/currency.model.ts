@@ -1,4 +1,5 @@
 import { Schema } from 'mongoose';
+import { CURRENCY } from '@shared/common/constants';
 
 export interface ICurrency {
   code: string;
@@ -9,7 +10,7 @@ export const CurrencySchema = new Schema<ICurrency>({
   code: {
     type: String,
     enum: {
-      values: ['PEN', 'USD'],
+      values: CURRENCY.CODE,
       message: '{VALUE} is not supported',
     },
     default: 'PEN',
@@ -17,7 +18,7 @@ export const CurrencySchema = new Schema<ICurrency>({
   },
   symbol: {
     type: String,
-    enum: ['S/', '$'],
+    enum: CURRENCY.SYMBOL,
     default: 'S/',
     required: true,
   },
