@@ -26,6 +26,7 @@ const kapucCreateUseCase = new KapucCreateUseCase(kapucService);
 const kapucController = new KapucController(kapucQueryUseCase, kapucCreateUseCase);
 
 export default {
+  service: kapucService,
   routerPublic: routerPublic({ kapucController }),
   routerPrivate: routerPrivate({ kapucController }),
 };

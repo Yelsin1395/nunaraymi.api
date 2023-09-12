@@ -6,7 +6,7 @@ export class KapucRepositoryImpl implements KapucRepository {
   constructor(private readonly kapuc: Model<IKapuc>) {}
 
   public async findById(id: string): Promise<IKapuc | null> {
-    return this.kapuc.findById(id);
+    return this.kapuc.findOne({ _id: id, isDelete: false });
   }
 
   public async create(entry: IKapucCreate): Promise<ObjectId> {

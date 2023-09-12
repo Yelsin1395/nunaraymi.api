@@ -9,6 +9,7 @@ export interface IUbigeo {
   referenceNotes?: string;
   latitude?: string;
   longitude?: string;
+  default: boolean;
 }
 
 export const UbigeoSchema = new Schema<IUbigeo>({
@@ -40,5 +41,9 @@ export const UbigeoSchema = new Schema<IUbigeo>({
   },
   longitude: {
     type: String,
+  },
+  default: {
+    type: Boolean,
+    default: false,
   },
 });

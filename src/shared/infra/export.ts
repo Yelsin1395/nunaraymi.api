@@ -7,6 +7,7 @@ import config from './config';
 import home from '@default/infra/export';
 import kapuc from '@kapuc/infa/export';
 import kamachiq from '@kamachiq/infra/export';
+import usuario from '@usuario/infra/export';
 
 export default {
   config,
@@ -16,5 +17,7 @@ export default {
     kapucRouterPrivate: kapuc.routerPrivate,
     kamachiqPublic: kamachiq.routerPublic,
     kamachiqPrivate: kamachiq.routerPrivate,
+    usuarioPublic: usuario.routerPublic,
+    usuarioPrivate: usuario.routerPrivate,
   }),
 };

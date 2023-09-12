@@ -13,7 +13,7 @@ export class KamachiqRepositoryImpl implements KamachiqRepository {
   ) {}
 
   public async findById(id: string): Promise<IKamachiq | null> {
-    return this.kamachiq.findOne({ kapucId: this.inSite, _id: id });
+    return this.kamachiq.findOne({ kapucId: this.inSite, _id: id, isDelete: false });
   }
 
   public async isUnique(input: IKamachiqIsUnique): Promise<boolean> {
@@ -30,7 +30,7 @@ export class KamachiqRepositoryImpl implements KamachiqRepository {
 
   public async create(entry: IKamachiqCreate): Promise<ObjectId> {
     const entity = {
-      kapucId: null,
+      kapucId: this.inSite,
       ruc: entry.ruc,
       name: entry.name,
       billingType: entry.billingType,

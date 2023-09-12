@@ -29,6 +29,7 @@ const kamachiqCreateUseCase = new KamachiqCreateUseCase(kamachiqService, auditSi
 const kamachiqController = new KamachiqController(kamachiqQueryUseCase, kamachiqCreateUseCase);
 
 export default {
+  service: kamachiqService,
   routerPublic: routerPublic({ kamachiqController }),
   routerPrivate: routerPrivate({ kamachiqController }),
 };

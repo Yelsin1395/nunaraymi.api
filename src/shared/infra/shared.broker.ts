@@ -16,6 +16,8 @@ export default function ({
   kapucRouterPrivate,
   kamachiqPublic,
   kamachiqPrivate,
+  usuarioPublic,
+  usuarioPrivate,
 }: any) {
   const router = express.Router();
   const apiRoutes = express.Router();
@@ -57,6 +59,10 @@ export default function ({
   // kamachiq
   apiRoutes.use('/public/kamachiq', kamachiqPublic);
   apiRoutes.use('/private/kamachiq', kamachiqPrivate);
+
+  // usuario
+  apiRoutes.use('/public/usuario', usuarioPublic);
+  apiRoutes.use('/private/usuario', usuarioPrivate);
 
   return router;
 }

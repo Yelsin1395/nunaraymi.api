@@ -10,3 +10,12 @@ export const CURRENCY = {
 export const HEADERS = {
   'X-KAPUC-SITE': 'x-kapuc-site',
 };
+
+export const USER = {
+  ROLES: ['kapuc', 'kamachiq', 'usuario'],
+  GENEDER: ['M', 'F'],
+};
+
+export const IDENTIFICATION_DOCUMENT = {
+  TYPES: ['DNI', 'CE'],
+};

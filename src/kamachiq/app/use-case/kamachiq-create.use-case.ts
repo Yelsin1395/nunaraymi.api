@@ -1,4 +1,5 @@
 import AppError from '@shared/infra/shared.exception';
+import kapuc from '@kapuc/infa/export';
 import { KamachiqService } from '@kamachiq/core/domain/kamachiq.service.domain';
 import { IKamachiqCreate } from '@kamachiq/core/interface/kamachiq.interface';
 
@@ -9,8 +10,9 @@ export class KamachiqCreateUseCase {
   ) {}
 
   public async execute(input: IKamachiqCreate) {
-    // Validacion del site
-    console.log(this.inSite);
+    if (!(await kapuc.service.findById(this.inSite))) {
+      throw new AppError(400, 'ERROR_KAPUC_UNRESOLVED', 'Kapuc could not be resolved');
+    }
 
     if (!(await this.kamachiqService.isUnique({ ruc: input.ruc }))) {
       throw new AppError(400, 'ERROR_KAMACHIQ_TAKEN', 'Kamachiq has been taken');
