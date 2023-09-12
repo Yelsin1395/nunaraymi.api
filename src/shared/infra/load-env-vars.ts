@@ -1,2 +1,5 @@
-import { config } from 'dotenv';
-config();
+/* eslint-disable */
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
