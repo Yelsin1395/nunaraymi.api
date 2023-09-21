@@ -19,3 +19,10 @@ export const USER = {
 export const IDENTIFICATION_DOCUMENT = {
   TYPES: ['DNI', 'CE'],
 };
+
+export const CACHE_TIME = {
+  ONE_HR: 3600,
+  HALF_PAST_HR: 1800,
+  FIVE_MIN: 300,
+  TWELVE_HR: 43200,
+};
