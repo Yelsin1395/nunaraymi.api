@@ -35,7 +35,10 @@ export class KamachiqRepositoryImpl implements KamachiqRepository {
       ruc: entry.ruc,
       name: entry.name,
       billingType: entry.billingType,
-      address: entry.address,
+      address: {
+        ...entry.address,
+        default: true,
+      },
       currency: entry.currency,
     };
 

@@ -1,4 +1,3 @@
-import { Schema } from 'mongoose';
 import { IDENTIFICATION_DOCUMENT } from '@shared/common/constants';
 
 export interface IIdentificationDocument {
@@ -6,7 +5,7 @@ export interface IIdentificationDocument {
   number: string;
 }
 
-export const IdentificationDocument = new Schema<IIdentificationDocument>({
+export const IdentificationDocument = {
   type: {
     type: String,
     enum: { values: IDENTIFICATION_DOCUMENT.TYPES, message: '{VALUE} is not supported.' },
@@ -16,4 +15,4 @@ export const IdentificationDocument = new Schema<IIdentificationDocument>({
     type: String,
     required: true,
   },
-});
+};

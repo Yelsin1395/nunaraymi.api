@@ -1,7 +1,5 @@
-import { Schema } from 'mongoose';
-
 export interface IUbigeo {
-  name: string;
+  name?: string;
   departament: string;
   province: string;
   district: string;
@@ -9,13 +7,13 @@ export interface IUbigeo {
   referenceNotes?: string;
   latitude?: string;
   longitude?: string;
-  default: boolean;
+  default?: boolean;
 }
 
-export const UbigeoSchema = new Schema<IUbigeo>({
+export const UbigeoSchema = {
   name: {
     type: String,
-    required: true,
+    default: null,
   },
   departament: {
     type: String,
@@ -38,12 +36,14 @@ export const UbigeoSchema = new Schema<IUbigeo>({
   },
   latitude: {
     type: String,
+    required: true,
   },
   longitude: {
     type: String,
+    required: true,
   },
   default: {
     type: Boolean,
     default: false,
   },
-});
+};

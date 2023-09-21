@@ -1,4 +1,3 @@
-import { Schema } from 'mongoose';
 import { CURRENCY } from '@shared/common/constants';
 
 export interface ICurrency {
@@ -6,7 +5,7 @@ export interface ICurrency {
   symbol: string;
 }
 
-export const CurrencySchema = new Schema<ICurrency>({
+export const CurrencySchema = {
   code: {
     type: String,
     enum: {
@@ -22,4 +21,4 @@ export const CurrencySchema = new Schema<ICurrency>({
     default: 'S/',
     required: true,
   },
-});
+};
