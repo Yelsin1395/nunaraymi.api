@@ -17,14 +17,13 @@ export interface IKamachiq extends Document {
 }
 
 export interface IKamachiqIsUnique {
-  id?: ObjectId;
+  id?: string;
   ruc: string;
   name?: string;
   isDelete?: string;
 }
 
 export interface IKamachiqCreate {
-  // kapucId?: ObjectId;
   ruc: string;
   name: string;
   billingType: string;

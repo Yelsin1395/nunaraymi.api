@@ -37,7 +37,7 @@ export interface IUsuarioIsUnique {
 }
 
 export interface IUsuarioCreate {
-  kamachiqId?: ObjectId;
+  kamachiqId?: string;
   identificationDocument?: IIdentificationDocument;
   name: string;
   lastName: string;

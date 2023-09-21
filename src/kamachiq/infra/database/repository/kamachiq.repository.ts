@@ -1,4 +1,5 @@
 import { ObjectId, Model } from 'mongoose';
+import { BehaviorSubject } from 'rxjs';
 import { KamachiqRepository } from '@kamachiq/core/domain/kamachiq.repository.domain';
 import {
   IKamachiq,
@@ -9,7 +10,7 @@ import {
 export class KamachiqRepositoryImpl implements KamachiqRepository {
   constructor(
     private readonly kamachiq: Model<IKamachiq>,
-    private readonly inSite: string
+    private readonly inSite: BehaviorSubject<string>
   ) {}
 
   public async findById(id: string): Promise<IKamachiq | null> {
@@ -18,7 +19,7 @@ export class KamachiqRepositoryImpl implements KamachiqRepository {
 
   public async isUnique(input: IKamachiqIsUnique): Promise<boolean> {
     const fileds = {
-      kapucId: this.inSite,
+      kapucId: this.inSite.getValue(),
       ...(input.id && { _id: input.id }),
       ruc: input.ruc,
       ...(input.name && { name: input.name }),
@@ -30,7 +31,7 @@ export class KamachiqRepositoryImpl implements KamachiqRepository {
 
   public async create(entry: IKamachiqCreate): Promise<ObjectId> {
     const entity = {
-      kapucId: this.inSite,
+      kapucId: this.inSite.getValue(),
       ruc: entry.ruc,
       name: entry.name,
       billingType: entry.billingType,

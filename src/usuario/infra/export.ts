@@ -22,10 +22,10 @@ import routerPublic from './http/public/usuario.router';
 import routerPrivate from './http/private/usuario.router';
 
 // build
-const usuarioRepository = new UsuarioRepositoryImpl(usuario, auditSite$.getValue());
+const usuarioRepository = new UsuarioRepositoryImpl(usuario, auditSite$);
 const usuarioService = new UsuarioServiceImpl(usuarioRepository);
 const usuarioQueryUseCase = new UsuarioQueryUseCase(usuarioService);
-const usuarioCreateUseCase = new UsuarioCreateUseCase(usuarioService, auditSite$.getValue());
+const usuarioCreateUseCase = new UsuarioCreateUseCase(usuarioService, auditSite$);
 const usuarioController = new UsuarioController(usuarioQueryUseCase, usuarioCreateUseCase);
 
 export default {

@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { USER } from '@shared/common/constants';
 import AppError from '@shared/infra/shared.exception';
 import kapuc from '@kapuc/infa/export';
@@ -8,11 +9,11 @@ import { IUsuarioCreate } from '@usuario/core/interface/usuario.interface';
 export class UsuarioCreateUseCase {
   constructor(
     private readonly usuarioService: UsuarioService,
-    private readonly inSite: string
+    private readonly inSite: BehaviorSubject<string>
   ) {}
 
   public async execute(input: IUsuarioCreate) {
-    if (!(await kapuc.service.findById(this.inSite))) {
+    if (!(await kapuc.service.findById(this.inSite.getValue()))) {
       throw new AppError(400, 'ERROR_KAPUC_UNRESOLVED', 'Kapuc could not be resolved');
     }
 

@@ -1,4 +1,5 @@
 import { ObjectId, Model } from 'mongoose';
+import { BehaviorSubject } from 'rxjs';
 import { UsuarioRepository } from '@usuario/core/domain/usuario.repository.domain';
 import {
   IUsuario,
@@ -9,16 +10,16 @@ import {
 export class UsuarioRepositoryImpl implements UsuarioRepository {
   constructor(
     private readonly usuario: Model<IUsuario>,
-    private readonly inSite: string
+    private readonly inSite: BehaviorSubject<string>
   ) {}
 
   public async findById(id: string): Promise<IUsuario | null> {
-    return this.usuario.findOne({ kapucId: this.inSite, _id: id, isDelete: false });
+    return this.usuario.findOne({ kapucId: this.inSite.getValue(), _id: id, isDelete: false });
   }
 
   public async isUnique(input: IUsuarioIsUnique): Promise<boolean> {
     const fields = {
-      kapucId: this.inSite,
+      kapucId: this.inSite.getValue(),
       ...(input.id && { _id: input.id }),
       ...(input.identificationDocument && { identificationDocument: input.identificationDocument }),
       email: {
@@ -32,7 +33,7 @@ export class UsuarioRepositoryImpl implements UsuarioRepository {
 
   public async create(entry: IUsuarioCreate): Promise<ObjectId> {
     const entity = {
-      kapucId: this.inSite,
+      kapucId: this.inSite.getValue(),
       ...(entry.kamachiqId && { kamachiqId: entry.kamachiqId }),
       identificationDocument: entry.identificationDocument,
       name: entry.name,

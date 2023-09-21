@@ -22,10 +22,10 @@ import routerPublic from './http/public/kamachiq.router';
 import routerPrivate from './http/private/kamachiq.router';
 
 // build
-const kamachiqRepository = new KamachiqRepositoryImpl(kamachiq, auditSite$.getValue());
+const kamachiqRepository = new KamachiqRepositoryImpl(kamachiq, auditSite$);
 const kamachiqService = new KamachiqServiceImpl(kamachiqRepository);
 const kamachiqQueryUseCase = new KamachiqQueryUseCase(kamachiqService);
-const kamachiqCreateUseCase = new KamachiqCreateUseCase(kamachiqService, auditSite$.getValue());
+const kamachiqCreateUseCase = new KamachiqCreateUseCase(kamachiqService, auditSite$);
 const kamachiqController = new KamachiqController(kamachiqQueryUseCase, kamachiqCreateUseCase);
 
 export default {
