@@ -28,7 +28,7 @@ export interface IUsuario extends Document {
 }
 
 export interface IUsuarioIsUnique {
-  id?: ObjectId;
+  id?: string;
   identificationDocument?: IIdentificationDocument;
   email: {
     address: string;

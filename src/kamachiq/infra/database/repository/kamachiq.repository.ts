@@ -14,7 +14,7 @@ export class KamachiqRepositoryImpl implements KamachiqRepository {
   ) {}
 
   public async findById(id: string): Promise<IKamachiq | null> {
-    return this.kamachiq.findOne({ kapucId: this.inSite, _id: id, isDelete: false });
+    return this.kamachiq.findOne({ kapucId: this.inSite.getValue(), _id: id, isDelete: false });
   }
 
   public async isUnique(input: IKamachiqIsUnique): Promise<boolean> {
