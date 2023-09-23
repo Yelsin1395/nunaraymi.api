@@ -4,9 +4,10 @@ import { auditSite$ } from '../common/audit';
 import { logger } from '@shared/infra/logger';
 
 export default function (req: Request, res: Response, next: NextFunction): void {
+  const body = req['body'];
   const inSite = req.headers[HEADERS['X-KAPUC-SITE']] || '';
   auditSite$.next(String(inSite));
   logger.info(`This site: ${auditSite$.getValue()}`);
-  logger.info(req);
+  logger.info(`Input: ${body}`);
   next();
 }
