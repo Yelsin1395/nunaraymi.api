@@ -7,6 +7,6 @@ export default function (req: Request, res: Response, next: NextFunction): void 
   const inSite = req.headers[HEADERS['X-KAPUC-SITE']] || '';
   auditSite$.next(String(inSite));
   logger.info(`This site: ${auditSite$.getValue()}`);
-  logger.warn(`Input: ${JSON.stringify(req.body)}`);
+  logger.warn(`Input: ${req.body}`);
   next();
 }
