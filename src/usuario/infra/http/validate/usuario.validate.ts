@@ -2,6 +2,7 @@ import Joi, { ObjectSchema } from 'joi';
 import { identificationDocumentSchema } from '@shared/infra/http/validate/common/identification-document.schema';
 import { USER } from '@shared/common/constants';
 import AppError from '@shared/infra/shared.exception';
+import regex from '@shared/common/regex';
 import { IUsuarioCreate } from '@usuario/core/interface/usuario.interface';
 
 export function createUsuarioValidateInput(input: IUsuarioCreate) {
@@ -14,7 +15,7 @@ export function createUsuarioValidateInput(input: IUsuarioCreate) {
       .valid(...USER.GENEDER)
       .required(),
     email: Joi.object({
-      address: Joi.string().email().required(),
+      address: Joi.string().regex(regex.email).required(),
     }),
     password: Joi.string().required(),
     role: Joi.string()
