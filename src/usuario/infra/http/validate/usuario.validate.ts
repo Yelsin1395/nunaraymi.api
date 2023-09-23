@@ -1,11 +1,13 @@
 import Joi, { ObjectSchema } from 'joi';
 import { identificationDocumentSchema } from '@shared/infra/http/validate/common/identification-document.schema';
 import { USER } from '@shared/common/constants';
+import { logger } from '@shared/infra/logger';
 import AppError from '@shared/infra/shared.exception';
 import regex from '@shared/common/regex';
 import { IUsuarioCreate } from '@usuario/core/interface/usuario.interface';
 
 export function createUsuarioValidateInput(input: IUsuarioCreate) {
+  logger.info(`Input: ${input}`);
   const schema: ObjectSchema<IUsuarioCreate> = Joi.object({
     kamachiqId: Joi.string().required().allow(null),
     identificationDocument: identificationDocumentSchema,
