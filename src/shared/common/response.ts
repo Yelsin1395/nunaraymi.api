@@ -2,7 +2,7 @@ import { Response } from 'express';
 import { logger } from '@shared/infra/logger';
 
 export function responseOk(res: Response, data: any) {
-  logger.info(`Output: ${JSON.stringify(data)}`);
+  logger.info(`Output: ${data}`);
   res.status(200).send({ status: 200, sucess: true, payload: data });
 }
 
