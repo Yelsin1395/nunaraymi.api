@@ -30,7 +30,7 @@ export interface IUsuario extends Document {
 export interface IUsuarioIsUnique {
   id?: string;
   identificationDocument?: IIdentificationDocument;
-  email: {
+  email?: {
     address: string;
     isConfirmed?: boolean;
   };

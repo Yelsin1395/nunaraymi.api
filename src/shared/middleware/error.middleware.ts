@@ -12,7 +12,6 @@ export default function (error: any, req: Request, res: Response, next: NextFunc
       payload: {
         code: error.code,
         message: error.message,
-        moreInfoError: error.stack,
       },
     });
   } else {

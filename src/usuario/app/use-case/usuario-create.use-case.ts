@@ -28,7 +28,19 @@ export class UsuarioCreateUseCase {
         email: input.email,
       }))
     ) {
-      throw new AppError(400, 'ERROR_USUARIO_TAKEN', 'Usuario has been taken');
+      throw new AppError(400, 'ERROR_USUARIO_EMAIL_TAKEN', 'The email by user already exisist');
+    }
+
+    if (
+      !(await this.usuarioService.isUnique({
+        identificationDocument: input.identificationDocument,
+      }))
+    ) {
+      throw new AppError(
+        400,
+        'ERROR_USUARIO_DOCUMENT_TAKEN',
+        'The document by user already exisist'
+      );
     }
 
     input.email = {

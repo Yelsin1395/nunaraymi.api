@@ -22,9 +22,7 @@ export class UsuarioRepositoryImpl implements UsuarioRepository {
       kapucId: this.inSite.getValue(),
       ...(input.id && { _id: input.id }),
       ...(input.identificationDocument && { identificationDocument: input.identificationDocument }),
-      email: {
-        address: input.email.address,
-      },
+      ...(input.email && { 'email.address': input.email.address }),
       isDelete: false,
     };
 
