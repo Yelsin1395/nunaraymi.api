@@ -7,4 +7,5 @@ export default {
   LOGTAIL_SOUCE_TOKEN: process.env.LOGTAIL_SOUCE_TOKEN,
   LOG_LEVEL: process.env.LOG_LEVEL,
   MEMORY_CACHE_KEY: process.env.MEMORY_CACHE_KEY,
+  JWT_SECRET: process.env.JWT_SECRET,
 };

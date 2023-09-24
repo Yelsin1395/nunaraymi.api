@@ -14,6 +14,10 @@ export class UsuarioServiceImpl implements UsuarioService {
     return this.usuarioRepository.findById(id);
   }
 
+  public async find(input: IUsuarioIsUnique): Promise<IUsuario | null> {
+    return this.usuarioRepository.find(input);
+  }
+
   public async isUnique(input: IUsuarioIsUnique): Promise<boolean> {
     return this.usuarioRepository.isUnique(input);
   }

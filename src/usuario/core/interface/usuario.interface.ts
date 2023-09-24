@@ -25,6 +25,9 @@ export interface IUsuario extends Document {
   role: string;
   enabled?: boolean;
   isDelete?: boolean;
+  toJSON(): IUsuario;
+  comparePasswordUsuario(password: string): boolean;
+  encryptPasswordUsuario(password: string): string;
 }
 
 export interface IUsuarioIsUnique {
@@ -48,4 +51,12 @@ export interface IUsuarioCreate {
   };
   password: string;
   role: string;
+}
+
+export interface IUsuarioAuth {
+  email: {
+    address: string;
+    isConfirmed?: boolean;
+  };
+  password: string;
 }

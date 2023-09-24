@@ -17,6 +17,15 @@ export class UsuarioRepositoryImpl implements UsuarioRepository {
     return this.usuario.findOne({ kapucId: this.inSite.getValue(), _id: id, isDelete: false });
   }
 
+  public async find(input: IUsuarioIsUnique): Promise<IUsuario | null> {
+    const fields = {
+      kapucId: this.inSite.getValue(),
+      ...(input.email && { 'email.address': input.email.address }),
+      isDelete: false,
+    };
+    return this.usuario.findOne(fields);
+  }
+
   public async isUnique(input: IUsuarioIsUnique): Promise<boolean> {
     const fields = {
       kapucId: this.inSite.getValue(),
