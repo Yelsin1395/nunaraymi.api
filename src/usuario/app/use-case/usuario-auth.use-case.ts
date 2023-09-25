@@ -29,6 +29,7 @@ export class UsuarioAuthUseCase {
     }
 
     const toEncode = {
+      id: usuario._id,
       kapucId: usuario.kapucId,
       kamachiqId: usuario.kamachiqId,
       identificationDocument: usuario.identificationDocument,
