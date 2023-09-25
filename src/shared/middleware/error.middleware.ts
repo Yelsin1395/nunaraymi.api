@@ -9,7 +9,7 @@ export default function (error: any, req: Request, res: Response, next: NextFunc
     const httpStatus = error.status || 400;
     res.status(httpStatus).send({
       status: httpStatus,
-      sucess: false,
+      success: false,
       payload: {
         code: error.code,
         message: error.message,
@@ -18,7 +18,7 @@ export default function (error: any, req: Request, res: Response, next: NextFunc
   } else {
     res.status(500).send({
       status: 500,
-      sucess: false,
+      success: false,
       payload: {
         code: 'INTERNAL_SERVER_ERROR',
       },

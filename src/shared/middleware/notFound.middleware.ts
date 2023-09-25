@@ -4,7 +4,7 @@ import { logger } from '@shared/infra/logger';
 export default function (req: Request, res: Response): void {
   const messageNotFound = {
     status: 404,
-    sucess: false,
+    success: false,
     payload: { message: 'RESOURCE_NOT_FOUND' },
   };
 
