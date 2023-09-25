@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { logger } from '@shared/infra/logger';
 
 export default function (error: any, req: Request, res: Response, next: NextFunction): void {
+  console.error(error);
   logger.error(JSON.stringify(error));
 
   if (error.code || error.name.includes('ValidationError')) {
