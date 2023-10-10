@@ -12,7 +12,8 @@
       "@default/*": ["src/default/*"],
       "@kapuc/*": ["src/kapuc/*"],
       "@kamachiq/*": ["src/kamachiq/*"],
-      "@usuario/*": ["src/usuario/*"]
+      "@usuario/*": ["src/usuario/*"],
+      "@ruwana/*": ["src/ruwana/*"]
     },
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,

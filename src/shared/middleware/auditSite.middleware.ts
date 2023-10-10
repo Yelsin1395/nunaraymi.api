@@ -13,7 +13,7 @@ export default function (req: Request, res: Response, next: NextFunction): void 
 
   if (token) {
     const usuario: any | null = jwtVerify(token);
-    auditUsuario$.next(usuario);
+    auditUsuario$.next({ id: String(usuario._id), role: usuario?.role });
     logger.info(`This user: ${usuario?._id}`);
   }
 

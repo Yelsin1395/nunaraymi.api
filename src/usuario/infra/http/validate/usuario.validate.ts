@@ -1,7 +1,7 @@
 import Joi, { ObjectSchema } from 'joi';
 import { identificationDocumentSchema } from '@shared/infra/http/validate/common/identification-document.schema';
-import { USER } from '@shared/common/constants';
 import AppError from '@shared/infra/shared.exception';
+import { USER } from '@shared/common/constants';
 import regex from '@shared/common/regex';
 import { IUsuarioCreate } from '@usuario/core/interface/usuario.interface';
 

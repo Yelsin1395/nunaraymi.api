@@ -18,6 +18,8 @@ export default function ({
   kamachiqPrivate,
   usuarioPublic,
   usuarioPrivate,
+  ruwanaPublic,
+  ruwanaPrivate,
 }: any) {
   const router = express.Router();
   const apiRoutes = express.Router();
@@ -63,6 +65,10 @@ export default function ({
   // usuario
   apiRoutes.use('/public/usuario', usuarioPublic);
   apiRoutes.use('/private/usuario', usuarioPrivate);
+
+  // ruwana
+  apiRoutes.use('/public/ruwana', ruwanaPublic);
+  apiRoutes.use('/private/ruwana', ruwanaPrivate);
 
   return router;
 }

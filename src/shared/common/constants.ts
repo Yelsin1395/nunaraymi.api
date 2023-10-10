@@ -12,6 +12,7 @@ export const HEADERS = {
 };
 
 export const USER = {
+  // 'kapuc' Owner | 'kamachiq' Organizer | 'usuario' Consumer
   ROLES: ['kapuc', 'kamachiq', 'usuario'],
   GENEDER: ['M', 'F'],
 };
@@ -25,4 +26,9 @@ export const CACHE_TIME = {
   HALF_PAST_HR: 1800,
   FIVE_MIN: 300,
   TWELVE_HR: 43200,
+};
+
+export const RUWANA = {
+  // 'apt' Childrens | '+14' Teenagers | '+16' Youths | '+18' Adults
+  TARGETS: ['apt', '+14', '+16', '+18'],
 };

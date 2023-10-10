@@ -16,7 +16,7 @@ export class UsuarioController {
 
   async findById(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
-    responseOk(res, await this.usuarioQueryUseCase.findById8(id));
+    responseOk(res, await this.usuarioQueryUseCase.findById(id));
   }
 
   async create(req: Request, res: Response): Promise<void> {

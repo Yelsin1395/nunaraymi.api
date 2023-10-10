@@ -4,7 +4,7 @@ import { UsuarioService } from '@usuario/core/domain/usuario.service.domain';
 export class UsuarioQueryUseCase {
   constructor(private readonly usuarioService: UsuarioService) {}
 
-  public async findById8(id: string) {
+  public async findById(id: string) {
     const usuarioDb = await this.usuarioService.findById(id);
 
     if (!usuarioDb) {
