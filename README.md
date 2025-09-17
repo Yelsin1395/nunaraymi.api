@@ -49,3 +49,17 @@ Fix lint issues automatically
 ```bash
 npm run lint:fix
 ```
+
+Environments variables
+
+```env
+APP_SCOPE = "private"
+DB_USER_MONGO="broly"
+DB_KEY_MONGO="qSSLBZnh9WXDTi7b"
+DB_HOST_MONGO="nunaraymi-stg.oxlyfks.mongodb.net"
+DB_CONTAINER_NAME_MONGO="default"
+LOGTAIL_SOUCE_TOKEN="4f6S6mrwz7m4pjvEVvDfCESV"
+LOG_LEVEL="debug"
+MEMORY_CACHE_KEY="53c6e74b1bddf4cebbdd747fc20447187202465b84ca03d90a55f69ca2501258"
+JWT_SECRET="4b88f59b2ab4df59d3e07f8f31341740bdbc49151c1dace14c997a1f3210da55"
+```
